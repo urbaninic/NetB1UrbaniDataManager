@@ -1,6 +1,6 @@
 {
-    "libria": {
-        "libri":[{
+    "libreria": {
+        "libri":[{ 
                 "genere":"fantasy",
                 "titolo":"Lo Hobbit",
                 "autore": "J. R. R. Tolkien",

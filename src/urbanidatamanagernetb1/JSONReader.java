@@ -20,25 +20,31 @@ import javax.json.JsonValue;
  */
 public class JSONReader {
     
-    public static final String JSON_FILE="libri.json";
+    public static final String JSON_FILE="libreria.json";
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
 
+        // creazione Array libri, di tipo Libro
         Libro libri[];
         
+        // ha il contenuto da leggere da JSON (input)
         InputStream input = new FileInputStream(JSON_FILE);
         
+        // Legge file JSON metodo createReader della classe Json
         JsonReader jsonReader = Json.createReader(input);
         
         JsonObject jsonObject = jsonReader.readObject();
         
+        // fine lettura Json - chiusura
         jsonReader.close();
         
+        // getJsonObject restituisce oggetto richiesto
         JsonObject innerJsonObject = jsonObject.getJsonObject("libreria");
         
+        // arrivo a "libri", ciò che ricerco
         JsonArray jsonArray = innerJsonObject.getJsonArray("libri");
         
         libri = new Libro[jsonArray.size()];
@@ -48,10 +54,12 @@ public class JSONReader {
         for (JsonValue element : jsonArray) {
             Libro libro = new Libro();
             
+            // righe che seguono ritornano contenuto di genere, titolo, autore per ogni "element"
             libro.setGenere(element.asJsonObject().getString("genere"));
             libro.setTitolo(element.asJsonObject().getString("titolo"));
             libro.setAutore(element.asJsonObject().getString("autore"));
             libro.setPrezzo((float) element.asJsonObject().getJsonNumber("prezzo").doubleValue());
+            
             
             libri[index++] = libro;        
         }

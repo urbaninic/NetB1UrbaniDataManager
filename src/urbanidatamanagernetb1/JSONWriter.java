@@ -20,7 +20,7 @@ import javax.json.JsonWriter;
  */
 public class JSONWriter {
     
-    public static final String JSON_FILE="libri.json";
+    public static final String JSON_FILE="libreria_vuota.json";
     
     /**
      * @param args the command line arguments
@@ -49,7 +49,13 @@ public class JSONWriter {
         JsonObjectBuilder booksObject = Json.createObjectBuilder();
         JsonArrayBuilder bookArray = Json.createArrayBuilder();
         
+        // a destra dei due punti c'è la fonte, a SX il tipo e il nome ("assegnazione")
         for (Libro libro : libri){
+            // fasi:
+            // - Creo contenitore "libro".
+            // - Creo dei campi all'interno del nuovo "libro".
+            // - Con .build chiudo
+            // (creo oggetti JSON da Java posseduto)
             JsonObjectBuilder bookObject =Json.createObjectBuilder();
             bookObject.add("genere", libro.getGenere());
             bookObject.add("titolo", libro.getTitolo());
