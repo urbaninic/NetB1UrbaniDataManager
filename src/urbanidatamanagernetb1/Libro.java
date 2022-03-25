@@ -12,7 +12,7 @@ package urbanidatamanagernetb1;
  */
 
 // CLASSE LIBRO 
-
+//commento1
 public class Libro {
     private String genere;
     private String titolo;
