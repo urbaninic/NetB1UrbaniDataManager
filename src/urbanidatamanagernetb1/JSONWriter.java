@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
@@ -20,31 +21,47 @@ import javax.json.JsonWriter;
  */
 public class JSONWriter {
     
-    public static final String JSON_FILE="libreria_vuota.json";
+    public static final String JSON_FILE="libreria.json";
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        
-        //commit di prova
 
-        Libro libri[] = new Libro[2];
+        // Es.2 (1)
+        ArrayList<Libro> libri = new ArrayList();
         
-        libri[0] = new Libro();
+        // array statico
+        // Libro libri[] = new Libro[2];
         
-        libri[0].setGenere("fantasy");
-        libri[0].setTitolo("Lo Hobbit");
-        libri[0].setAutore("J. R. R. Tolkien");
-        libri[0].setPrezzo(9.9f);
+        // ad arraylist libri aggiungo un nuovo libro
+        libri.add(new Libro());
+        
+        libri.get(0).setGenere("fantasy");
+        libri.get(0).setTitolo("Lo Hobbit");
+        libri.get(0).setAutore("J. R. R. Tolkien");
+        libri.get(0).setPrezzo(9.9f);
+        
+        // Vecchi metodi set      
+        // libri[0].setGenere("fantasy");
+        // libri[0].setTitolo("Lo Hobbit");
+        // libri[0].setAutore("J. R. R. Tolkien");
+        // libri[0].setPrezzo(9.9f);
         
         
-        libri[1] = new Libro();
+        //istanza nuovo libro
+        libri.add(new Libro());
         
-        libri[1].setGenere("fantasy");
-        libri[1].setTitolo("Il signore degli anelli");
-        libri[1].setAutore("J. R. R. Tolkien");
-        libri[1].setPrezzo(30.00f);
+        libri.get(1).setGenere("fantasy");
+        libri.get(1).setTitolo("Il signore degli anelli");
+        libri.get(1).setAutore("J. R. R. Tolkien");
+        libri.get(1).setPrezzo(30.00f);
+        
+        // Vecchi metodi set        
+        // libri[1].setGenere("fantasy");
+        // libri[1].setTitolo("Il signore degli anelli");
+        // libri[1].setAutore("J. R. R. Tolkien");
+        // libri[1].setPrezzo(30.00f);
     
     
         JsonObjectBuilder rootObject = Json.createObjectBuilder();
